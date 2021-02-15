@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: is-tester-multiarch
+  namespace: default
+data:
+  test: |-
+    {
+      "broker_uri": "amqp://rabbitmq.default",
+      "zipkin_uri": "http://zipkin.default:9411"
+    }
+---
+
+apiVersion: extensions/v1beta1 
+kind: Deployment
+metadata:
+  name: is-tester-multiarch
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: is-tester-multiarch
+    spec:
+      containers:
+      - name: is-tester-multiarch
+        image: luizcarloscf/is-tester-multiarch:0.0.1
+        command: ["is-tester-multiarch-rpc"]
+        args: ["/conf/options.json"]
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: "1"
+            memory: 128Mi
+        volumeMounts:
+          - name: options
+            mountPath: /conf/
+      volumes:
+      - name: options
+        configMap:
+          name: is-tester-multiarch
+          items:
+          - key: test
+            path: options.json

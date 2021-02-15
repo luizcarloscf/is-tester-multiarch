@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message TesterOptions {
+    string broker_uri = 1;
+    string zipkin_uri = 2;
+}

@@ -1,0 +1,4 @@
+{
+    "broker_uri": "amqp://rabbitmq.default:5672",
+    "zipkin_uri": "http://zipkin.default:9411"
+}
