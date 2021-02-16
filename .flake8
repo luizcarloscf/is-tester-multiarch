@@ -1,0 +1,10 @@
+[flake8]
+max-line-length = 100
+ignore = W293, W291
+exclude = 
+    .git,
+    __pycache__,
+    etc,
+    src/is_tester_multiarch/conf,
+    .vscode,
+    .github

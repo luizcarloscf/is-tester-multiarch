@@ -12,9 +12,10 @@ from .utils import zipkin_uriparse, load_options
 def increment(struct, ctx):
     if struct.fields["value"].number_value < 0:
         return Status(StatusCode.INVALID_ARGUMENT, "Number must be positive")
-    time.sleep(0.2) 
+    time.sleep(0.2)
     struct.fields["value"].number_value += 1.0
     return struct
+
 
 def main():
     service_name = "Tester"
@@ -35,10 +36,8 @@ def main():
     tracing = TracingInterceptor(exporter)
     provider.add_interceptor(tracing)
 
-    provider.delegate(
-        topic="Tester.Increment",
-        function=increment,
-        request_type=Struct,
-        reply_type=Struct)
-    provider.run() 
-
+    provider.delegate(topic="Tester.Increment",
+                      function=increment,
+                      request_type=Struct,
+                      reply_type=Struct)
+    provider.run()

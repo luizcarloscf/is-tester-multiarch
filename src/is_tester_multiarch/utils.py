@@ -1,10 +1,10 @@
 import re
-import sys
 
 from is_wire.core import Logger
 from google.protobuf.json_format import Parse
 
 from .conf.options_pb2 import TesterOptions
+
 
 def zipkin_uriparse(uri: str = "http://localhost:9411"):
     """
@@ -33,11 +33,12 @@ def zipkin_uriparse(uri: str = "http://localhost:9411"):
     zipkin_ok = re.match("http:\\/\\/([a-zA-Z0-9\\.]+)(:(\\d+))?", uri)
     if not zipkin_ok:
         log.critical("Invalid zipkin uri \"{}\", expected http://<hostname>:<port>", uri)
-    host_name, port  = zipkin_ok.group(1), zipkin_ok.group(3)
-    
+    host_name, port = zipkin_ok.group(1), zipkin_ok.group(3)
+
     return host_name, port
 
-def load_options(filename: str = 'options.json', print_options : bool = True):
+
+def load_options(filename: str = 'options.json', print_options: bool = True):
     """
     Load a json file and parse into protobuf object. Raises critical error if cannot open or read.
     file.
@@ -66,4 +67,4 @@ def load_options(filename: str = 'options.json', print_options : bool = True):
             except Exception as ex:
                 log.critical('Unable to load options from \'{}\'. \n{}', filename, ex)
     except Exception as ex:
-        log.critical('Unable to open file \'{}\'', filename)
+        log.critical('Unable to open file \'{}\'. \n{}', filename, ex)

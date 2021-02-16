@@ -26,5 +26,5 @@ setup(
         "is-wire==1.2.0",
         "opencensus-ext-zipkin==0.2.1",
         "vine==1.3.0",
-],
+    ],
 )
