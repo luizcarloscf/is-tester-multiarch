@@ -1,11 +1,5 @@
 from setuptools import setup, find_packages
 
-
-def get_requirements(req_file="requirements.txt"):
-    lines = [line.strip() for line in open(req_file)]
-    return [line for line in lines if line]
-
-
 setup(
     name='is_tester_multiarch',
     version='0.0.1',
