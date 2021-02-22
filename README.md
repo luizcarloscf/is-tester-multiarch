@@ -16,7 +16,7 @@
          <img src="https://img.shields.io/static/v1?label=OS/arch&message=linux%2Famd64%20%7C%20linux%2F386%20%7C%20linux%2Farm%2Fv6%20%7C%20linux%2Farm%2Fv7%20%7C%20linux%2Farm64%20%7C%20linux%2Fppc64le%20%7C%20linux%2Fs390x&color=blue&style=flat-square" /> </a>
 </p>
 
-Simple service for the *is* architecture capable of running in multi-platforms. It is a simple implementation just to prove that any application can be packaged into several docker images supporting different plataforms.
+Simple service for the *is* architecture capable of running in multi-platforms. It is a simple implementation just to prove that any application can be packaged into several docker images supporting different platforms.
 
 ## Multi-platform images
 
@@ -34,7 +34,7 @@ You can build multi-platform images using three different strategies that are su
 * Building on multiple native nodes using the same builder instance;
 * Using a stage in Dockerfile to cross-compile to different architectures;
 
-This project uses Github Actions to setup a workflow responsible to build and publish the docker images. It uses QEMU, for emulation of different plataforms. All Github Actions used in this project are developed by Docker.
+This project uses Github Actions to setup a workflow responsible to build and publish the docker images. It uses QEMU, for emulation of different platforms. All Github Actions used in this project are developed by Docker.
 
 - [docker/setup-qemu-action](https://github.com/docker/setup-qemu-action);
 
@@ -47,7 +47,7 @@ This project uses Github Actions to setup a workflow responsible to build and pu
 
 ## RPC
 
-The RPC, or Remote Procedure Call, provided here acts as a remote server that binds a specific function to a topic. The python script responsible for the RPC in the table below can be found in [`src/is_tester_multiarch/rpc.py`](https://github.com/luizcarloscf/is-tester-multiarch/blob/master/src/is_tester_multiarch/rpc.py).
+The RPC, or Remote Procedure Call, provided here acts as a remote server that binds an specific function to a topic. The python script responsible for the RPC in the table below can be found in [`src/is_tester_multiarch/rpc.py`](https://github.com/luizcarloscf/is-tester-multiarch/blob/master/src/is_tester_multiarch/rpc.py).
 
 | Service | Request | Reply |  Description |
 | ------- | ------- | ----- | ------------ |
