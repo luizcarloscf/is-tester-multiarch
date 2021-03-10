@@ -19,7 +19,7 @@ setup(
         "is-msgs==1.1.10",
         "is-wire==1.2.0",
         "opencensus-ext-zipkin==0.2.1",
-        "googleapis-common-proto==1.52.0",
+        "googleapis-common-protos==1.52.0",
         "vine==1.3.0",
     ],
 )
